@@ -10,16 +10,8 @@ app.use('/.netlify/functions/server', router) // path must route to lambda
 app.use('/', router)
 
 router.get('/', (req, res) => {
-  var date = new Date();
-  const startTime = Date.now();
-
-  // Do something useful
-  const endTime = Date.now();
-  const elapsed = endTime - startTime;
-  
   res.writeHead(200, { 'Content-Type': 'text/html' })
-  res.write('<h1>Up and running</h1>' + date + '</br>')
-  res.write('<p>Elapsed time: ' + elapsed + 'ms</p>')
+  res.write('<h1>Up and running</h1>')
   res.end()
 })
 
