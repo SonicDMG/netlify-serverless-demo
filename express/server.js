@@ -10,8 +10,9 @@ app.use('/.netlify/functions/server', router) // path must route to lambda
 app.use('/', router)
 
 router.get('/', (req, res) => {
+  var date = new Date();
   res.writeHead(200, { 'Content-Type': 'text/html' })
-  res.write('<h1>Up and running</h1>')
+  res.write('<h1>Up and running</h1>' + date)
   res.end()
 })
 
