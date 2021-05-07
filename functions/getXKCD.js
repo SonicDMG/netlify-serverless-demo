@@ -1,17 +1,13 @@
-import axios from "axios"
 
-exports.handler = function(event, context, callback) {
-  const apiRoot = "https://api.unsplash.com"
-  const accessKey = process.env.ACCESS_KEY || accessKey
+import faker from "faker";
+import fetch from "node-fetch";
 
-  const doggoEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='3816141,1154337,1254279'`
-
-  axios.get(doggoEndpoint).then(res => {
-    callback(null, {
-      statusCode: 200,
-      body: JSON.stringify({
-        images: res.data,
-      }),
-    })
-  })
-}
+exports.handler = async (event, context) => {
+  const comic = faker.random.number({ min: 1, max: 2387 });
+  const res = await fetch(`https://xkcd.com/${comic}/info.0.json`);
+  const resJson = await res.json();
+  return {
+    statusCode: 200,
+    body: JSON.stringify(resJson),
+  };
+};

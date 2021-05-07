@@ -2,10 +2,9 @@
   "name": "netlify-serverless-demo",
   "version": "0.0.1",
   "description": "",
-  "main": "functions/server.js",
   "scripts": {
-    "build": "netlify-lambda build functions",
-    "start": "nodemon server-local.js"
+    "dev": "netlify dev",
+    "build": "netlify-lambda build functions"
   },
   "repository": {
     "type": "git",
@@ -23,5 +22,8 @@
     "node-fetch": "^2.6.1",
     "nodemon": "^1.19.2",
     "serverless-http": "^2.3.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^2.68.5"
   }
 }
